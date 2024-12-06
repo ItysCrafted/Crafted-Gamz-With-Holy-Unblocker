@@ -109,7 +109,13 @@ const app = Fastify({
 
 // Apply Helmet middleware for security.
 app.register(fastifyHelmet, {
-  contentSecurityPolicy: false, // Disable CSP
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      frameAncestors: ["*"], 
+    },
+  },
+  xFrameOptions: false, 
   xPoweredBy: false,
 });
 
