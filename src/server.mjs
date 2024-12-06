@@ -115,8 +115,8 @@ app.register(fastifyHelmet, {
       frameAncestors: ["*"], 
     },
   },
-  xFrameOptions: false, 
-  xPoweredBy: false,
+  xFrameOptions: true, 
+  xPoweredBy: true,
 });
 
 // Assign server file paths to different paths, for serving content on the website.
