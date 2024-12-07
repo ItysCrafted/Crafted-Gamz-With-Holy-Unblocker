@@ -107,18 +107,6 @@ const app = Fastify({
   serverFactory: serverFactory,
 });
 
-// Apply Helmet middleware for security.
-app.register(fastifyHelmet, {
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      frameAncestors: ["*"], 
-    },
-  },
-  xFrameOptions: true, 
-  xPoweredBy: true,
-});
-
 // Assign server file paths to different paths, for serving content on the website.
 app.register(fastifyStatic, {
   root: fileURLToPath(new URL('../views/pages', import.meta.url)),
